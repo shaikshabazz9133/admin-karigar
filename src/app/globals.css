@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* Home Karigar admin — same warm palette and faces as the website: espresso ink, walnut accent,
+   brass detail on dark surfaces. The canvas is a faint linen so white cards read as raised. */
+@theme {
+  --color-canvas: #f7f4f0;
+  --color-card: #ffffff;
+  --color-espresso: #1d1815;
+  --color-espresso-soft: #2a231f;
+  --color-espresso-line: #3a322d;
+
+  --color-ink: #1f1a17;
+  --color-ink-soft: #3d3530;
+  --color-muted: #6b625a;
+  --color-ivory-muted: #b9b0a6;
+
+  --color-line: #e8e1d7;
+  --color-line-strong: #cfc5b8;
+
+  --color-walnut: #6e5038;
+  --color-walnut-deep: #583c26;
+  --color-walnut-tint: #f3ede6;
+  --color-brass: #c2a06b;
+  --color-brass-ink: #7d5f33;
+
+  /* Logo — sampled from the textured stone mark, as on the website */
+  --color-umber: #33200d;
+  --color-taupe: #8f7763;
+
+  --color-danger: #a12a2a;
+  --color-danger-tint: #f8eaea;
+  --color-success: #2f6b4f;
+  --color-success-tint: #e7f1ec;
+
+  --font-display: var(--font-inter-tight), "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  --font-accent: var(--font-cormorant), Georgia, serif;
+
+  --text-eyebrow: 0.6875rem;
+  --text-eyebrow--letter-spacing: 0.12em;
+
+  --shadow-soft: 0 1px 2px rgb(31 26 23 / 0.04), 0 10px 30px -14px rgb(31 26 23 / 0.14);
+  --shadow-lift: 0 2px 6px rgb(31 26 23 / 0.05), 0 28px 56px -24px rgb(31 26 23 / 0.3);
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-rise: rise 0.9s var(--ease-premium) both;
+  --animate-kenburns: kenburns 9s linear both;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+
+  @keyframes rise {
+    from { opacity: 0; transform: translate3d(0, 18px, 0); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes kenburns {
+    from { transform: scale(1.12); }
+    to { transform: scale(1); }
+  }
+  @keyframes shimmer {
+    from { background-position: -200% 0; }
+    to { background-position: 200% 0; }
+  }
+}
+
+@layer base {
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.006em;
+  }
+  ::selection { background: var(--color-walnut); color: #fff; }
+  :focus-visible { outline: 2px solid var(--color-walnut); outline-offset: 2px; }
+}
+
+@layer components {
+  .eyebrow {
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--text-eyebrow--letter-spacing);
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1;
+  }
+  .display { font-family: var(--font-display); letter-spacing: -0.035em; line-height: 0.98; }
+  .accent { font-family: var(--font-accent); font-style: italic; font-weight: 500; letter-spacing: -0.01em; }
+
+  .field {
+    height: 3rem;
+    width: 100%;
+    border-radius: 0.625rem;
+    border: 1px solid var(--color-line-strong);
+    background: #fff;
+    padding: 0 0.9rem;
+    font-size: 0.9375rem;
+    color: var(--color-ink);
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+  .field:hover { border-color: var(--color-muted); }
+  .field:focus { outline: none; border-color: var(--color-walnut); box-shadow: 0 0 0 4px rgb(110 80 56 / 0.12); }
+  .field[aria-invalid="true"] { border-color: var(--color-danger); }
+  .skeleton {
+    background: linear-gradient(90deg, #efe9e2 0%, #f8f5f1 50%, #efe9e2 100%);
+    background-size: 200% 100%;
+    animation: var(--animate-shimmer);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+/* Touch screens have no hover: show the controls that otherwise appear on hover. */
+@custom-variant touch (@media (hover: none));

@@ -1,0 +1,630 @@
+[
+  {
+    "legacyId": 1,
+    "slug": "flat-57175-meridian-park",
+    "name": "Minimal Contemporary Interior",
+    "flatNo": "57175",
+    "configuration": "3 BHK",
+    "development": "Meridian Park",
+    "community": "The Prestige City",
+    "area": "1,629 sq. ft.",
+    "cover": "/images/57175/21.jpeg",
+    "images": [
+      {
+        "src": "/images/57175/21.jpeg",
+        "room": "Dining & Crockery"
+      }
+    ]
+  },
+  {
+    "legacyId": 7,
+    "slug": "flat-13102-avlon-park",
+    "name": "Warm Modernism",
+    "flatNo": "13102",
+    "configuration": "3 BHK",
+    "development": "Avlon Park",
+    "community": "The Prestige City",
+    "area": "1,600 sq. ft.",
+    "cover": "/images/13102/22.jpeg",
+    "images": [
+      {
+        "src": "/images/13102/21.jpeg",
+        "room": "Entrance & Foyer"
+      },
+      {
+        "src": "/images/13102/001.jpeg",
+        "room": "Living Room"
+      },
+      {
+        "src": "/images/13102/20.jpeg",
+        "room": "Living Room"
+      },
+      {
+        "src": "/images/13102/22.jpeg",
+        "room": "Living Room"
+      },
+      {
+        "src": "/images/13102/23.jpeg",
+        "room": "Living Room"
+      },
+      {
+        "src": "/images/13102/19.jpeg",
+        "room": "Dining & Crockery"
+      },
+      {
+        "src": "/images/13102/25.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/13102/26.jpeg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/13102/28.jpeg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/13102/30.jpeg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/13102/29.jpeg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/13102/29(1).PNG",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/13102/27.jpeg",
+        "room": "Guest Bedroom"
+      },
+      {
+        "src": "/images/13102/24.jpeg",
+        "room": "Details"
+      },
+      {
+        "src": "/images/13102/31.jpeg",
+        "room": "Details"
+      }
+    ]
+  },
+  {
+    "legacyId": 4,
+    "slug": "flat-13104-avlon-park",
+    "name": "A Symphony of Spaces",
+    "flatNo": "13104",
+    "configuration": "3 BHK",
+    "development": "Avlon Park",
+    "community": "The Prestige City",
+    "area": "1,875 sq. ft.",
+    "cover": "/images/13104/3.jpg",
+    "images": [
+      {
+        "src": "/images/13104/01.jpg",
+        "room": "Entrance & Foyer"
+      },
+      {
+        "src": "/images/13104/4.jpg",
+        "room": "Wall Décor"
+      },
+      {
+        "src": "/images/13104/12.jpg",
+        "room": "Living Room"
+      },
+      {
+        "src": "/images/13104/9.jpg",
+        "room": "Living Room"
+      },
+      {
+        "src": "/images/13104/1.jpg",
+        "room": "Dining & Crockery"
+      },
+      {
+        "src": "/images/13104/13.jpg",
+        "room": "Dining & Crockery"
+      },
+      {
+        "src": "/images/13104/2.jpg",
+        "room": "Dining & Crockery"
+      },
+      {
+        "src": "/images/13104/11.jpg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/13104/14.jpg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/13104/3.jpg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/13104/6.jpg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/13104/10.jpg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/13104/7.jpg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/13104/5.jpg",
+        "room": "Guest Bedroom"
+      },
+      {
+        "src": "/images/13104/8.jpg",
+        "room": "Guest Bedroom"
+      },
+      {
+        "src": "/images/13104/15.jpg",
+        "room": "Guest Bedroom"
+      }
+    ]
+  },
+  {
+    "legacyId": 3,
+    "slug": "flat-17242-avlon-park",
+    "name": "Minimalist Harmony",
+    "flatNo": "17242",
+    "configuration": "3 BHK",
+    "development": "Avlon Park",
+    "community": "The Prestige City",
+    "area": "1,800 sq. ft.",
+    "cover": "/images/17242/9.jpeg",
+    "images": [
+      {
+        "src": "/images/17242/1.jpeg",
+        "room": "Entrance & Foyer"
+      },
+      {
+        "src": "/images/17242/2.jpeg",
+        "room": "Entrance & Foyer"
+      },
+      {
+        "src": "/images/17242/8.jpeg",
+        "room": "Wall Décor"
+      },
+      {
+        "src": "/images/17242/21.jpeg",
+        "room": "Wall Décor"
+      },
+      {
+        "src": "/images/17242/6.jpeg",
+        "room": "Living Room"
+      },
+      {
+        "src": "/images/17242/7.jpeg",
+        "room": "Living Room"
+      },
+      {
+        "src": "/images/17242/20.jpeg",
+        "room": "Dining & Crockery"
+      },
+      {
+        "src": "/images/17242/3.jpeg",
+        "room": "Dining & Crockery"
+      },
+      {
+        "src": "/images/17242/4.jpeg",
+        "room": "Dining & Crockery"
+      },
+      {
+        "src": "/images/17242/5.jpeg",
+        "room": "Dining & Crockery"
+      },
+      {
+        "src": "/images/17242/19.jpeg",
+        "room": "Dining & Crockery"
+      },
+      {
+        "src": "/images/17242/22.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17242/23.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17242/24.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17242/25.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17242/26.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17242/27.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17242/28.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17242/13.jpeg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/17242/16.jpeg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/17242/9.jpeg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/17242/10.jpeg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/17242/15.jpeg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/17242/11.jpeg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/17242/12.jpeg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/17242/17.jpeg",
+        "room": "Guest Bedroom"
+      },
+      {
+        "src": "/images/17242/18.jpeg",
+        "room": "Guest Bedroom"
+      },
+      {
+        "src": "/images/17242/14.jpeg",
+        "room": "Details"
+      }
+    ]
+  },
+  {
+    "legacyId": 2,
+    "slug": "flat-59051-meridian-park",
+    "name": "Modern Rajputana",
+    "flatNo": "59051",
+    "configuration": "3 BHK",
+    "development": "Meridian Park",
+    "community": "The Prestige City",
+    "area": "1,465 sq. ft.",
+    "cover": "/images/59051/3.jpeg",
+    "images": [
+      {
+        "src": "/images/59051/3.jpeg",
+        "room": "Wall Décor"
+      },
+      {
+        "src": "/images/59051/19.jpeg",
+        "room": "Wall Décor"
+      },
+      {
+        "src": "/images/59051/2.jpeg",
+        "room": "Wall Décor"
+      },
+      {
+        "src": "/images/59051/5.jpeg",
+        "room": "Wall Décor"
+      },
+      {
+        "src": "/images/59051/22.jpeg",
+        "room": "Living Room"
+      },
+      {
+        "src": "/images/59051/8.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/59051/11.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/59051/12.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/59051/9.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/59051/17.jpeg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/59051/7.jpeg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/59051/4.jpeg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/59051/6.jpeg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/59051/13.jpeg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/59051/14.jpeg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/59051/16.jpeg",
+        "room": "Guest Bedroom"
+      },
+      {
+        "src": "/images/59051/18.jpeg",
+        "room": "Guest Bedroom"
+      },
+      {
+        "src": "/images/59051/15.jpeg",
+        "room": "Guest Bedroom"
+      },
+      {
+        "src": "/images/59051/10.jpeg",
+        "room": "Guest Bedroom"
+      },
+      {
+        "src": "/images/59051/20.jpeg",
+        "room": "Details"
+      },
+      {
+        "src": "/images/59051/21.jpeg",
+        "room": "Details"
+      }
+    ]
+  },
+  {
+    "legacyId": 6,
+    "slug": "flat-17285-avlon-park",
+    "name": "Essential Living",
+    "flatNo": "17285",
+    "configuration": "3 BHK",
+    "development": "Avlon Park",
+    "community": "The Prestige City",
+    "area": "1,800 sq. ft.",
+    "cover": "/images/17285/2.jpg",
+    "images": [
+      {
+        "src": "/images/17285/9.jpg",
+        "room": "Entrance & Foyer"
+      },
+      {
+        "src": "/images/17285/11.jpg",
+        "room": "Entrance & Foyer"
+      },
+      {
+        "src": "/images/17285/16.jpg",
+        "room": "Wall Décor"
+      },
+      {
+        "src": "/images/17285/13.jpg",
+        "room": "Living Room"
+      },
+      {
+        "src": "/images/17285/14.jpg",
+        "room": "Living Room"
+      },
+      {
+        "src": "/images/17285/15.jpg",
+        "room": "Living Room"
+      },
+      {
+        "src": "/images/17285/2.jpg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17285/3.jpg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17285/4.jpg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17285/6.jpg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17285/7.jpg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17285/5.jpg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17285/17.jpeg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/17285/10.jpg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/17285/1.jpg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/17285/8.jpg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/17285/12.jpg",
+        "room": "Guest Bedroom"
+      }
+    ]
+  },
+  {
+    "legacyId": 5,
+    "slug": "flat-17193-avlon-park",
+    "name": "Modern Aesthetic",
+    "flatNo": "17193",
+    "configuration": "3 BHK",
+    "development": "Avlon Park",
+    "community": "The Prestige City",
+    "area": "1,875 sq. ft.",
+    "cover": "/images/17193/6.jpeg",
+    "images": [
+      {
+        "src": "/images/17193/2.jpeg",
+        "room": "Entrance & Foyer"
+      },
+      {
+        "src": "/images/17193/1.jpeg",
+        "room": "Wall Décor"
+      },
+      {
+        "src": "/images/17193/16.jpeg",
+        "room": "Wall Décor"
+      },
+      {
+        "src": "/images/17193/3.jpeg",
+        "room": "Living Room"
+      },
+      {
+        "src": "/images/17193/4.jpeg",
+        "room": "Dining & Crockery"
+      },
+      {
+        "src": "/images/17193/5.jpeg",
+        "room": "Dining & Crockery"
+      },
+      {
+        "src": "/images/17193/6.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17193/7.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17193/8.jpeg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/17193/12.jpeg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/17193/13.jpeg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/17193/9.jpeg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/17193/10.jpeg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/17193/11.jpeg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/17193/14.jpeg",
+        "room": "Guest Bedroom"
+      },
+      {
+        "src": "/images/17193/15.jpeg",
+        "room": "Details"
+      },
+      {
+        "src": "/images/17193/22.jpeg",
+        "room": "Details"
+      },
+      {
+        "src": "/images/17193/27.jpeg",
+        "room": "Details"
+      }
+    ]
+  },
+  {
+    "legacyId": 9,
+    "slug": "flat-13262-avlon-park",
+    "name": "Modern Contemporary",
+    "flatNo": "13262",
+    "configuration": "3 BHK",
+    "development": "Avlon Park",
+    "community": "The Prestige City",
+    "area": "1,875 sq. ft.",
+    "cover": "/images/13262/4.jpg",
+    "images": [
+      {
+        "src": "/images/13262/8.jpg",
+        "room": "Entrance & Foyer"
+      },
+      {
+        "src": "/images/13262/1.jpg",
+        "room": "Wall Décor"
+      },
+      {
+        "src": "/images/13262/4.jpg",
+        "room": "Living Room"
+      },
+      {
+        "src": "/images/13262/9.jpg",
+        "room": "Dining & Crockery"
+      },
+      {
+        "src": "/images/13262/0.jpg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/13262/10.jpg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/13262/11.jpg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/13262/12.jpg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/13262/13.jpg",
+        "room": "Kitchen"
+      },
+      {
+        "src": "/images/13262/2.jpg",
+        "room": "Master Bedroom"
+      },
+      {
+        "src": "/images/13262/3.jpg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/13262/6.jpg",
+        "room": "Kids' Bedroom"
+      },
+      {
+        "src": "/images/13262/7.jpg",
+        "room": "Details"
+      },
+      {
+        "src": "/images/13262/5.jpg",
+        "room": "Details"
+      },
+      {
+        "src": "/images/13262/15.jpg",
+        "room": "Details"
+      }
+    ]
+  }
+]

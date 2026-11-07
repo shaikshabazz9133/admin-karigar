@@ -102,7 +102,7 @@ export function ProjectEditor({ project, suggestions, siteUrl }: { project: Proj
         <div className="mt-6 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div className="min-w-0">
             <motion.p className="eyebrow text-brass-ink" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.05, ease }}>
-              {isNew ? "New home" : `Flat ${saved.flatNo} · ${saved.development}`}
+              {isNew ? "New home" : `Flat ${saved.flatNo} · ${saved.community}`}
             </motion.p>
             <motion.h1 className="display mt-4 truncate text-4xl md:text-5xl" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.1, ease }}>
               {details.name || (isNew ? <>Add a <span className="accent text-walnut">home.</span></> : "Untitled home")}
@@ -137,7 +137,7 @@ export function ProjectEditor({ project, suggestions, siteUrl }: { project: Proj
           </div>
 
           <form className="mt-8 grid gap-x-5 gap-y-6 sm:grid-cols-2" onSubmit={(e) => { e.preventDefault(); save(); }}>
-            <Field label="Design name" hint="The home's heading, e.g. Warm Modernism" error={errors.name} className="sm:col-span-2" i={0}>
+            <Field label="Home name" hint="Shown as the heading on the website" error={errors.name} className="sm:col-span-2" i={0}>
               <input name="name" value={details.name} onChange={set("name")} className="field" placeholder="Warm Modernism" aria-invalid={!!errors.name} />
             </Field>
             <Field label="Flat number" error={errors.flatNo} i={1}>
@@ -154,15 +154,11 @@ export function ProjectEditor({ project, suggestions, siteUrl }: { project: Proj
                 onChange={(v) => { setDetails((d) => ({ ...d, configuration: v })); setErrors((x) => ({ ...x, configuration: undefined })); }}
               />
             </Field>
-            <Field label="Development" hint="Used for the Community filter" error={errors.development} i={3}>
-              <input name="development" list="developments" value={details.development} onChange={set("development")} className="field" placeholder="Meridian Park" aria-invalid={!!errors.development} />
-              <datalist id="developments">{suggestions.developments.map((d) => <option key={d} value={d} />)}</datalist>
-            </Field>
-            <Field label="Community" error={errors.community} i={4}>
+            <Field label="Community" error={errors.community} i={3}>
               <input name="community" list="communities" value={details.community} onChange={set("community")} className="field" placeholder="The Prestige City" aria-invalid={!!errors.community} />
               <datalist id="communities">{suggestions.communities.map((d) => <option key={d} value={d} />)}</datalist>
             </Field>
-            <Field label="Built-up area" error={errors.area} className="sm:col-span-2" i={5}>
+            <Field label="Built-up area" error={errors.area} i={4}>
               <input name="area" value={details.area} onChange={set("area")} className="field" placeholder="1,600 sq. ft." aria-invalid={!!errors.area} />
             </Field>
             <button type="submit" hidden />
@@ -276,12 +272,11 @@ function PreviewCard({ details: d, cover, count }: { details: ProjectDetails; co
         </AnimatePresence>
         <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent opacity-70" />
         {d.configuration && <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium text-ink backdrop-blur-sm">{d.configuration}</span>}
-        <span className="absolute bottom-3 right-3 grid size-10 place-items-center rounded-full bg-white text-ink"><Icon name="arrowUpRight" size={17} /></span>
       </div>
       <div className="flex items-start justify-between gap-3 px-2 pb-2 pt-4">
         <div className="min-w-0">
-          <p className="eyebrow mb-2 truncate text-muted">Flat {d.flatNo || "—"} · {d.development || "Development"}</p>
-          <h3 className="display truncate text-xl tracking-tight">{d.name || "Design name"}</h3>
+          <p className="eyebrow mb-2 truncate text-muted">Flat {d.flatNo || "—"} · {d.community || "Community"}</p>
+          <h3 className="display truncate text-xl tracking-tight">{d.name || "Home name"}</h3>
         </div>
         <p className="mt-5 shrink-0 text-right text-xs text-muted">
           {d.area || "Area"}

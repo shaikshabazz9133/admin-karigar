@@ -10,7 +10,7 @@ import { Icon } from "@/components/Icon";
 import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { Select } from "@/components/Select";
 import { useToast } from "@/components/Toaster";
-import { deleteImage, moveImage, setCover, setImageRoom } from "../actions";
+import { deleteImage, moveImage, setCover } from "../actions";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const ACCEPT = ["image/jpeg", "image/png", "image/webp"];
@@ -130,9 +130,6 @@ export function PhotoManager({
 
   // Photos in the grid belong to a saved home, so these only run once projectId is set.
   const id = projectId ?? "";
-  const changeRoom = (img: ProjectImage, r: string) =>
-    run(images.map((i) => (i.id === img.id ? { ...i, room: r } : i)), coverSrc, () => setImageRoom(id, img.id, r), `Moved to ${r}`);
-
   const makeCover = (img: ProjectImage) => run(images, img.src, () => setCover(id, img.id), "Cover photo updated");
 
   const move = (img: ProjectImage, dir: -1 | 1) => {
@@ -155,6 +152,9 @@ export function PhotoManager({
 
   const counts = new Map<string, number>();
   for (const img of images) counts.set(img.room, (counts.get(img.room) ?? 0) + 1);
+  // Photos picked before the home exists are shown under their room straight away.
+  for (const u of pending) counts.set(u.room, (counts.get(u.room) ?? 0) + 1);
+  const total = images.length + pending.length;
   const tabs = ["All", ...[...counts.keys()].sort((a, b) => roomRank(a) - roomRank(b))];
   // The standard rooms plus any custom ones already used in this home, so they can be picked again.
   const roomOptions = [...new Set<string>([...ROOMS, ...images.map((i) => i.room), ...uploads.map((u) => u.room)])].filter(Boolean);
@@ -162,7 +162,7 @@ export function PhotoManager({
   const groups = tabs
     .slice(1)
     .filter((r) => activeTab === "All" || r === activeTab)
-    .map((r) => ({ room: r, images: images.filter((i) => i.room === r) }));
+    .map((r) => ({ room: r, images: images.filter((i) => i.room === r), pending: pending.filter((u) => u.room === r) }));
 
   return (
     <motion.section
@@ -219,42 +219,6 @@ export function PhotoManager({
         </div>
       </div>
 
-      {/* Upload queue */}
-      <AnimatePresence initial={false}>
-        {pending.length > 0 && (
-          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden">
-            <p className="mt-6 text-sm text-ink-soft">
-              <span className="font-medium">{pending.length} ready to upload</span> <span className="text-muted">· set each photo&apos;s room</span>
-            </p>
-            <ul className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-              <AnimatePresence initial={false} mode="popLayout">
-                {pending.map((u, i) => (
-                  <motion.li
-                    key={u.key}
-                    layout
-                    initial={{ opacity: 0, scale: 0.85, y: 12 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.2 } }}
-                    transition={{ type: "spring", stiffness: 360, damping: 30, delay: Math.min(i, 10) * 0.03 }}
-                    className="group relative overflow-hidden rounded-xl bg-line"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={u.preview} alt="" className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <button type="button" aria-label={`Remove ${u.name}`} onClick={() => removePending(u)} className="absolute right-2 top-2 grid size-8 place-items-center rounded-full bg-white/95 text-ink opacity-0 transition-all hover:scale-110 hover:bg-danger hover:text-white group-hover:opacity-100 focus:opacity-100 touch:opacity-100">
-                      <Icon name="x" size={14} />
-                    </button>
-                    <div className="absolute inset-x-2 bottom-2">
-                      <Select variant="glass" label={`Room for ${u.name}`} value={u.room} options={roomOptions} onChange={(r) => patch(u.key, { room: r })} allowCustom customLabel="Other room…" />
-                    </div>
-                  </motion.li>
-                ))}
-              </AnimatePresence>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <AnimatePresence initial={false}>
         {inFlight.length > 0 && (
           <motion.ul initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="mt-4 grid gap-2 overflow-hidden sm:grid-cols-2 xl:grid-cols-3">
@@ -295,13 +259,13 @@ export function PhotoManager({
       </AnimatePresence>
 
       {/* Room tabs */}
-      {images.length > 0 && (
+      {total > 0 && (
         <div className="no-scrollbar -mx-2 mt-8 flex gap-1 overflow-x-auto border-b border-line px-2" role="tablist" aria-label="Rooms">
           {tabs.map((t) => {
             const active = t === activeTab;
             return (
               <button key={t} role="tab" aria-selected={active} onClick={() => setTab(t)} className={cn("relative shrink-0 px-3 pb-3 pt-1 text-sm transition-colors", active ? "text-ink" : "text-muted hover:text-ink")}>
-                {t} <span className="ml-0.5 text-xs tabular-nums opacity-60">{t === "All" ? images.length : counts.get(t)}</span>
+                {t} <span className="ml-0.5 text-xs tabular-nums opacity-60">{t === "All" ? total : counts.get(t)}</span>
                 {active && <motion.span layoutId="room-tab" className="absolute inset-x-1 -bottom-px h-0.5 rounded-full bg-walnut" transition={{ type: "spring", stiffness: 500, damping: 38 }} />}
               </button>
             );
@@ -316,7 +280,7 @@ export function PhotoManager({
               <h3 className="mb-4 flex items-center gap-3 text-sm font-medium text-ink-soft">
                 {g.room}
                 <span className="h-px flex-1 bg-line" />
-                <span className="text-xs text-muted">{g.images.length}</span>
+                <span className="text-xs text-muted">{g.images.length + g.pending.length}</span>
               </h3>
             )}
             <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
@@ -332,15 +296,31 @@ export function PhotoManager({
                   >
                     <PhotoTile
                       image={img}
-                      rooms={roomOptions}
                       isCover={img.src === (coverSrc ?? images[0]?.src)}
                       first={i === 0}
                       last={i === g.images.length - 1}
                       onCover={() => makeCover(img)}
-                      onRoom={(r) => changeRoom(img, r)}
                       onMove={(d) => move(img, d)}
                       onDelete={() => setToDelete(img)}
                     />
+                  </motion.li>
+                ))}
+                {g.pending.map((u, i) => (
+                  <motion.li
+                    key={u.key}
+                    layout
+                    initial={{ opacity: 0, scale: 0.85, y: 12 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.2 } }}
+                    transition={{ type: "spring", stiffness: 360, damping: 30, delay: Math.min(i, 10) * 0.03 }}
+                    className="group relative overflow-hidden rounded-xl bg-line"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={u.preview} alt="" className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <span className="absolute left-2 top-2 rounded-full bg-white/90 px-2 py-1 text-[0.65rem] font-medium uppercase tracking-wider text-ink backdrop-blur-sm">Ready</span>
+                    <button type="button" aria-label={`Remove ${u.name}`} onClick={() => removePending(u)} className="absolute right-2 top-2 grid size-8 place-items-center rounded-full bg-white/95 text-ink opacity-0 transition-all hover:scale-110 hover:bg-danger hover:text-white group-hover:opacity-100 focus:opacity-100 touch:opacity-100">
+                      <Icon name="x" size={14} />
+                    </button>
                   </motion.li>
                 ))}
               </AnimatePresence>
@@ -362,10 +342,10 @@ export function PhotoManager({
 }
 
 function PhotoTile({
-  image, rooms, isCover, first, last, onCover, onRoom, onMove, onDelete,
+  image, isCover, first, last, onCover, onMove, onDelete,
 }: {
-  image: ProjectImage; rooms: readonly string[]; isCover: boolean; first: boolean; last: boolean;
-  onCover: () => void; onRoom: (r: string) => void; onMove: (d: -1 | 1) => void; onDelete: () => void;
+  image: ProjectImage; isCover: boolean; first: boolean; last: boolean;
+  onCover: () => void; onMove: (d: -1 | 1) => void; onDelete: () => void;
 }) {
   return (
     <figure className={cn("group relative overflow-hidden rounded-xl bg-line ring-offset-2 transition-shadow", isCover && "ring-2 ring-brass")}>
@@ -391,9 +371,6 @@ function PhotoTile({
         </div>
       </div>
 
-      <figcaption className="absolute inset-x-2 bottom-2 translate-y-2 opacity-0 transition-all duration-300 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 touch:translate-y-0 touch:opacity-100">
-        <Select variant="glass" label="Room" value={image.room} options={rooms} onChange={onRoom} allowCustom customLabel="Other room…" />
-      </figcaption>
     </figure>
   );
 }

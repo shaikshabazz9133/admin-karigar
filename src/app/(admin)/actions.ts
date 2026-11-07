@@ -12,10 +12,9 @@ export type SaveResult =
 type Result = { ok: true; project: Project } | { ok: false; error: string };
 
 const REQUIRED: [keyof ProjectDetails, string][] = [
-  ["name", "Give the home its design name."],
+  ["name", "Give the home a name."],
   ["flatNo", "Enter the flat number."],
   ["configuration", "Choose the configuration."],
-  ["development", "Enter the development."],
   ["community", "Enter the community."],
   ["area", "Enter the built-up area."],
 ];
@@ -41,6 +40,8 @@ export async function saveProject(id: string | null, input: ProjectDetails): Pro
   const details = Object.fromEntries(
     REQUIRED.map(([k]) => [k, String(input[k] ?? "").trim().replace(/\s+/g, " ")]),
   ) as ProjectDetails;
+  // Development is no longer asked for; it mirrors the community (the API still needs it for slugs and filters).
+  details.development = details.community;
   const fields: Partial<Record<keyof ProjectDetails, string>> = {};
   for (const [key, msg] of REQUIRED) if (!details[key]) fields[key] = msg;
   if (Object.keys(fields).length) return { ok: false, error: "A few details are missing.", fields };

@@ -32,3 +32,18 @@ All calls go through `src/lib/api.ts` on the server. When the API rejects the to
 
 Photos are absolute URLs: uploads from the API's `/media`, existing photos from the website's `/images`
 (both allowed in `next.config.ts`).
+
+## Seeding the website's original homes
+
+`npm run seed` uploads the homes the website used to hard-code (`scripts/seed-data.json`: the 8 showcased homes, their
+names, areas, rooms and covers — 131 photographs) through the same API: it signs in, creates each home, uploads every
+photo to its room and sets the cover. The files are read from `../redesign-home-karigar/public` (override with
+`IMAGES_DIR`). After this the website shows them from `GET /public/projects`, and they are edited here like any other home.
+
+```bash
+ADMIN_EMAIL=admin@homekarigar.in ADMIN_PASSWORD=… npm run seed   # prompts for whichever is missing
+npm run seed -- --dry-run      # only check the data and that every photo file exists
+npm run seed -- --replace      # delete and re-upload homes that already exist (matched by slug)
+```
+
+Homes already in the admin are skipped, so running it twice is harmless.
